@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="script.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <!-- Top Navigation - comment -->
+    <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold">UASPL</h1>
+            <p class="text-sm text-gray-500">Construction • Redevelopment</p>
+        </div>
+        <nav class="space-x-6 text-sm font-medium text-gray-600">
+            <a href="dashboard.html" class="top-link text-blue-600 border-b-2 border-blue-600 pb-1">Dashboard</a>
+            <a href="#"
+                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Compliance</a>
+            <a href="#"
+                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Architecture</a>
+            <a href="#"
+                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Civil</a>
+            <a href="#"
+                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">MEP</a>
+            <a href="#"
+                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Meetings</a>
+            <a href="#"
+                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Development</a>
+
+            <span class="ml-6">Welcome, <strong>Admin</strong></span>
+            <div class="inline-block w-8 h-8 bg-gray-300 rounded-full text-center text-white font-bold leading-8">
+                A
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex min-h-screen">
+        <!-- Sidebar - comment -->
+        <aside class="bg-white shadow-md p-4 flex flex-col items-center space-y-4">
+            <div class="w-10 h-10 bg-blue-200 text-white rounded-lg flex items-center justify-center font-bold">
+                <a href="dashboard.html" class="sidebar-link" id="link-D">D</a>
+            </div>
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+                <a href="#" class="sidebar-link" id="link-C">C</a>
+            </div>
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+                <a href="#" class="sidebar-link" id="link-A">A</a>
+            </div>
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+                <a href="#" class="sidebar-link" id="link-V">V</a>
+            </div>
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+                <a href="#" class="sidebar-link" id="link-M">M</a>
+            </div>
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+                <a href="#" class="sidebar-link" id="link-S">S</a>
+            </div>
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+                <a href="#" class="sidebar-link" id="link-P">P</a>
+            </div>
+        </aside>
+
+        <!-- Dashboard Content - comment -->
+
+        <section class="flex-1 p-6 space-y-6">
+            <!-- Info Cards - comment -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl shadow">
+                    <h2 class="font-semibold text-sm text-gray-600">
+                        Active Societies
+                    </h2>
+                    <p class="text-3xl font-bold text-blue-600">12</p>
+                    <p class="text-sm text-gray-400">
+                        Total societies currently active
+                    </p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow">
+                    <h2 class="font-semibold text-sm text-gray-600">
+                        Ongoing Projects
+                    </h2>
+                    <p class="text-3xl font-bold text-blue-600">7</p>
+                    <p class="text-sm text-gray-400">Projects under construction</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow">
+                    <h2 class="font-semibold text-sm text-gray-600">
+                        Upcoming Meetings
+                    </h2>
+                    <p class="text-3xl font-bold text-blue-600">3</p>
+                    <p class="text-sm text-gray-400">Scheduled in next 30 days</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow">
+                    <h2 class="font-semibold text-sm text-gray-600">
+                        Compliance Alerts
+                    </h2>
+                    <p class="text-3xl font-bold text-blue-600">4</p>
+                    <p class="text-sm text-gray-400">Pending compliance items</p>
+                </div>
+            </div>
+
+            <!-- Progress & Projects - comment -->
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="col-span-2 bg-white h-100 p-4 rounded-xl shadow">
+                    <h2 class="font-semibold text-gray-700 mb-4">Project Progress</h2>
+                    <div class="bg-gray-100 h-80 flex items-center justify-center text-gray-500">
+                        <!-- [Progress Chart Placeholder] -->
+                             <canvas id="progressChart" class="w-full h-64"></canvas>
+
+                        <!-- <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow">
+                            <h2 class="text-xl font-bold mb-4">Project Completion Status</h2>
+
+                            <canvas id="barChart" class="w-full h-64"></canvas>
+                        </div> -->
+                    </div>
+                    <div class="flex justify-between mt-4 text-sm text-gray-600">
+                        <div>
+                            Avg Completion<br /><span class="font-bold text-xl text-blue-600">62%</span>
+                        </div>
+                        <div>
+                            On Time<br /><span class="font-bold text-xl text-blue-600">78%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ongoing Projects - comment -->
+
+                <div class="bg-white p-4 rounded-xl shadow">
+                    <h2 class="font-semibold text-gray-700 mb-4">Ongoing Projects</h2>
+                    <div class="space-y-3 text-sm text-gray-600">
+                        <div class="flex justify-between mb-5">
+                            <div>
+                                <p class="font-medium text-black">Shivaji Residency</p>
+                                <p>Phase: Civil — % Complete 55%</p>
+                            </div>
+                            <a href="#" class="text-blue-600 font-medium">View</a>
+                        </div>
+                        <div class="flex justify-between mb-5">
+                            <div>
+                                <p class="font-medium text-black">Green Park Redev</p>
+                                <p>Phase: Architecture — % Complete 40%</p>
+                            </div>
+                            <a href="#" class="text-blue-600 font-medium">View</a>
+                        </div>
+                        <div class="flex justify-between mb-5">
+                            <div>
+                                <p class="font-medium text-black">Lotus Towers</p>
+                                <p>Phase: MEP — % Complete 72%</p>
+                            </div>
+                            <a href="#" class="text-blue-600 font-medium">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
