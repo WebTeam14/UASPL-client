@@ -17,9 +17,30 @@
             <h1 class="text-xl font-bold">UASPL</h1>
             <p class="text-sm text-gray-500">Construction • Redevelopment</p>
         </div>
-        <nav class="space-x-6 text-sm font-medium text-gray-600">
-            <a href="dashboard.html" class="top-link text-blue-600 border-b-2 border-blue-600 pb-1">Dashboard</a>
-            <a href="#"
+        <nav class="space-x-5 text-sm font-medium text-gray-600">
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="dashboard.html" class="top-link">Dashboard</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Compliance</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Architecture</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Civil</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">MEP</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Meetings</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Development</a>
+            </button>
+
+            <!-- <a href="#"
                 class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Compliance</a>
             <a href="#"
                 class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Architecture</a>
@@ -30,12 +51,12 @@
             <a href="#"
                 class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Meetings</a>
             <a href="#"
-                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Development</a>
+                class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Development</a> -->
 
             <span class="ml-6">Welcome, <strong>Admin</strong></span>
             <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
                 <!-- <a href="admin.html">A</a> -->
-                 <button id="profileDropdownBtn"
+                <button id="profileDropdownBtn"
                     class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
                     aria-haspopup="true" aria-expanded="false">
                     A
@@ -43,17 +64,14 @@
             </div>
 
             <!-- Dropdown menu -->
-  <div
-    id="profileDropdownMenu"
-    class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg hidden z-50"
-    role="menu"
-    aria-orientation="vertical"
-    aria-labelledby="profileDropdownBtn"
-  >
-    <a href="admin.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">View Details</a>
-    <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">Logout</a>
-  </div>
-</div>
+            <div id="profileDropdownMenu"
+                class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg hidden z-50" role="menu"
+                aria-orientation="vertical" aria-labelledby="profileDropdownBtn">
+                <a href="admin.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">View
+                    Details</a>
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">Logout</a>
+            </div>
+            </div>
         </nav>
     </header>
 
@@ -88,32 +106,36 @@
         <section class="flex-1 p-6 space-y-6">
             <!-- Info Cards - comment -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="bg-white p-4 rounded-xl shadow">
+                <div class="bg-white p-4 rounded-xl shadow cursor-pointer" onclick="showDetails('activeSocieties')">
                     <h2 class="font-semibold text-sm text-gray-600">
-                        Active Societies
+                        <span class="underline decoration-2 underline-offset-4 decoration-blue-500">Active
+                            Societies</span>
                     </h2>
                     <p class="text-3xl font-bold text-blue-600">12</p>
                     <p class="text-sm text-gray-400">
                         Total societies currently active
                     </p>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow">
+                <div class="bg-white p-4 rounded-xl shadow cursor-pointer" onclick="showDetails('ongoingProjects')">
                     <h2 class="font-semibold text-sm text-gray-600">
-                        Ongoing Projects
+                        <span class="underline decoration-2 underline-offset-4 decoration-blue-500">Ongoing
+                            Projects</span>
                     </h2>
                     <p class="text-3xl font-bold text-blue-600">7</p>
                     <p class="text-sm text-gray-400">Projects under construction</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow">
+                <div class="bg-white p-4 rounded-xl shadow cursor-pointer" onclick="showDetails('upcomingMeetings')">
                     <h2 class="font-semibold text-sm text-gray-600">
-                        Upcoming Meetings
+                        <span class="underline decoration-2 underline-offset-4 decoration-blue-500">Upcoming Meetings
+                        </span>
                     </h2>
                     <p class="text-3xl font-bold text-blue-600">3</p>
                     <p class="text-sm text-gray-400">Scheduled in next 30 days</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow">
+                <div class="bg-white p-4 rounded-xl shadow cursor-pointer" onclick="showDetails('complianceAlerts')">
                     <h2 class="font-semibold text-sm text-gray-600">
-                        Compliance Alerts
+                        <span class="underline decoration-2 underline-offset-4 decoration-blue-500">Compliance
+                            Alerts</span>
                     </h2>
                     <p class="text-3xl font-bold text-blue-600">4</p>
                     <p class="text-sm text-gray-400">Pending compliance items</p>
@@ -127,7 +149,7 @@
                     <h2 class="font-semibold text-gray-700 mb-4">Project Progress</h2>
                     <div class="bg-gray-100 h-80 flex items-center justify-center text-gray-500">
                         <!-- [Progress Chart Placeholder] -->
-                             <canvas id="progressChart" class="w-full h-64"></canvas>
+                        <canvas id="progressChart" class="w-full h-64"></canvas>
 
                         <!-- <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow">
                             <h2 class="text-xl font-bold mb-4">Project Completion Status</h2>
@@ -145,9 +167,24 @@
                     </div>
                 </div>
 
-                <!-- Ongoing Projects - comment -->
 
-                <div class="bg-white p-4 rounded-xl shadow">
+                <div id="detailsPanel"></div>
+
+                <!-- Hidden content blocks -->
+
+                <!-- Active Societies -->
+                <div id="activeSocieties" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Active Societies</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Sunshine Residency</li>
+                        <li>Maple Heights</li>
+                        <li>Blue Ridge Apartments</li>
+                        <li>Orchid Greens</li>
+                    </ul>
+                </div>
+
+                <!-- Ongoing Projects -->
+                <div class="bg-white p-4 rounded-xl shadow hidden" id="ongoingProjects">
                     <h2 class="font-semibold text-gray-700 mb-4">Ongoing Projects</h2>
                     <div class="space-y-3 text-sm text-gray-600">
                         <div class="flex justify-between mb-5">
@@ -173,6 +210,29 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Upcoming Meetings -->
+                <div id="upcomingMeetings" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Upcoming Meetings</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Sunshine Residency</li>
+                        <li>Maple Heights</li>
+                        <li>Blue Ridge Apartments</li>
+                        <li>Orchid Greens</li>
+                    </ul>
+                </div>
+
+                <!-- Compliance Alerts -->
+                <div id="complianceAlerts" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Compliance Alerts</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Sunshine Residency</li>
+                        <li>Maple Heights</li>
+                        <li>Blue Ridge Apartments</li>
+                        <li>Orchid Greens</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
     </main>

@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".top-link").forEach((link) => {
     const href = link.getAttribute("href");
     if (href === currentPage) {
-      link.classList.add("text-blue-600", "border-b-2", "border-blue-600");
-      link.classList.remove("text-gray-600");
+      link.classList.add("text-white-600");
+      link.classList.remove("text-blue-600");
     } else {
-      link.classList.remove("text-blue-600", "border-blue-600");
+      link.classList.remove("text-white-600");
     }
   });
 
@@ -92,6 +92,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// dynamic rendering of tabs and details
+function showDetails(sectionId) {
+  const sourceContent = document.getElementById(sectionId);
+  const detailsPanel = document.getElementById('detailsPanel');
+
+  if (!sourceContent || !detailsPanel) return;
+
+  // Clone the node (deep = true)
+  const cloned = sourceContent.cloneNode(true);
+  cloned.classList.remove('hidden');
+
+  // Clear existing content and insert new one
+  detailsPanel.innerHTML = '';
+  detailsPanel.appendChild(cloned);
+
+  // detailsPanel.scrollIntoView({ behavior: 'smooth' });
+}
+
+if (window.innerWidth < 768) {
+  detailsPanel.scrollIntoView({ behavior: 'smooth' });
+}
 
 // Toggle for edit profile and change password - Admin page
 
