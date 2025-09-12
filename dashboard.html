@@ -33,9 +33,27 @@
                 class="top-link text-gray-600 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent pb-1">Development</a>
 
             <span class="ml-6">Welcome, <strong>Admin</strong></span>
-            <div class="inline-block w-8 h-8 bg-gray-300 rounded-full text-center text-white font-bold leading-8">
-                A
+            <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
+                <!-- <a href="admin.html">A</a> -->
+                 <button id="profileDropdownBtn"
+                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
+                    aria-haspopup="true" aria-expanded="false">
+                    A
+                </button>
             </div>
+
+            <!-- Dropdown menu -->
+  <div
+    id="profileDropdownMenu"
+    class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg hidden z-50"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="profileDropdownBtn"
+  >
+    <a href="admin.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">View Details</a>
+    <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">Logout</a>
+  </div>
+</div>
         </nav>
     </header>
 

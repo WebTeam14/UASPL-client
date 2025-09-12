@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="script.js"></script>
+
+</head>
+
+<body>
+    <!-- Admin Profile Page -->
+    <div class="min-h-screen bg-gray-100 p-6 font-sans">
+        <a href="dashboard.html" class="inline-flex items-center text-blue-600 hover:underline mb-4">
+  ← Back to Dashboard
+</a>
+        <h1 class="text-2xl font-bold mb-6">Admin Profile</h1>
+
+        <!-- Profile Card -->
+        <div class="bg-white rounded-lg shadow p-6 flex flex-col md:flex-row gap-6 items-center md:items-start">
+            <!-- Profile Picture -->
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500">
+                <img src="images/adminProfile.jfif" alt="Admin Profile Picture" class="object-cover w-full h-full">
+            </div>
+
+            <!-- Admin Info -->
+            <div class="flex-1">
+                <h2 class="text-xl font-semibold mb-1">SuperUser</h2>
+                <p class="text-gray-600 mb-2">Role: <span class="font-medium">Administrator</span></p>
+                <p class="text-gray-600 mb-2">Email: <span class="font-medium">admin@uaspl.com</span></p>
+                <p class="text-gray-600 mb-2">Phone: <span class="font-medium">+91-9876543210</span></p>
+
+                <!-- Action Buttons -->
+                <div class="mt-4 flex gap-4">
+                    <button onclick="toggleSection('editSection')"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+                        Edit Profile
+                    </button>
+                    <button onclick="toggleSection('passwordSection')"
+                        class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded">
+                        Change Password
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert -->
+        <div id="alertBox"
+            class="hidden mt-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative max-w-xl transition-opacity duration-500 ease-in-out opacity-100">
+            <strong class="font-bold">Success!</strong>
+            <span class="block sm:inline" id="alertMessage">Action completed successfully.</span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer" onclick="closeAlert()">
+                <svg class="fill-current h-6 w-6 text-green-700" role="button" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20">
+                    <title>Close</title>   &times;
+                    </svg>
+            </span>
+        </div>
+
+        <!-- Edit Profile Section -->
+        <div id="editSection" class="hidden bg-white rounded shadow p-6 mt-6 relative">
+            <button onclick="hideSection('editSection')"
+                class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+            <h2 class="text-lg font-semibold mb-4">Edit Profile</h2>
+            <form onsubmit="handleSuccess('Profile updated successfully.', 'editSection'); return false;"
+                class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium">Full Name</label>
+                    <input type="text" class="mt-1 w-full p-2 border rounded" value="SuperUser">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Email</label>
+                    <input type="email" class="mt-1 w-full p-2 border rounded" value="admin@uaspl.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Phone</label>
+                    <input type="text" class="mt-1 w-full p-2 border rounded" value="+91-9876543210">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Role</label>
+                    <input type="text" class="mt-1 w-full p-2 border rounded bg-gray-100" value="Administrator"
+                        disabled>
+                </div>
+                <div class="md:col-span-2 mt-4">
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save
+                        Changes</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Change Password Section -->
+        <div id="passwordSection" class="hidden bg-white rounded shadow p-6 mt-6 relative">
+            <button onclick="hideSection('passwordSection')"
+                class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl">&times;</button>
+            <h2 class="text-lg font-semibold mb-4">Change Password</h2>
+            <form onsubmit="handleSuccess('Password updated successfully.', 'passwordSection'); return false;"
+                class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium">Current Password</label>
+                    <input type="password" class="mt-1 w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">New Password</label>
+                    <input type="password" class="mt-1 w-full p-2 border rounded">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium">Confirm New Password</label>
+                    <input type="password" class="mt-1 w-full p-2 border rounded">
+                </div>
+                <div class="md:col-span-2 mt-4">
+                    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update
+                        Password</button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Stats Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-white p-4 rounded shadow text-center">
+                <p class="text-gray-500">Total Projects Overseen</p>
+                <p class="text-3xl font-semibold text-blue-600">7</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <p class="text-gray-500">Active Societies</p>
+                <p class="text-3xl font-semibold text-green-600">12</p>
+            </div>
+            <div class="bg-white p-4 rounded shadow text-center">
+                <p class="text-gray-500">Compliance Alerts</p>
+                <p class="text-3xl font-semibold text-red-600">4</p>
+            </div>
+        </div>
+
+        <!-- Activity Log (Optional) -->
+        <div class="bg-white p-6 rounded shadow mt-8">
+            <h2 class="text-lg font-semibold mb-4">Recent Activity</h2>
+            <ul class="text-sm text-gray-700 space-y-2">
+                <li>✅ Approved compliance item for Lotus Towers (2 days ago)</li>
+                <li>✏️ Edited project status for Shivaji Residency (3 days ago)</li>
+                <li>📤 Uploaded architecture plan for Green Park Redev (1 week ago)</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
