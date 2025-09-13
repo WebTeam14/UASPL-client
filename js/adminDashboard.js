@@ -1,29 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPage = window.location.pathname.split("/").pop();
 
-  // Top nav links - dashboard page
-  document.querySelectorAll(".top-link").forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href === currentPage) {
-      link.classList.add("text-white-600");
-      link.classList.remove("text-blue-600");
-    } else {
-      link.classList.remove("text-white-600");
-    }
-  });
+//Script for Admin Dashboard page
 
-  // Sidebar links - dashboard page
-  document.querySelectorAll(".sidebar-link").forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href === currentPage) {
-      link.classList.add("text-blue-600", "bg-blue-100");
-    } else {
-      link.classList.remove("text-blue-600", "bg-blue-100");
-    }
-  });
-});
-
-// Progress chart - dashboard page
+// Progress chart
 const ctx = document.getElementById("progressChart").getContext("2d");
 
 new Chart(ctx, {
@@ -68,7 +46,7 @@ new Chart(ctx, {
   },
 });
 
-// Toggle for Admin icon - Dashboard page
+// Toggle for Admin icon
 
 document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById('profileDropdownBtn');
@@ -114,39 +92,3 @@ function showDetails(sectionId) {
 if (window.innerWidth < 768) {
   detailsPanel.scrollIntoView({ behavior: 'smooth' });
 }
-
-// Toggle for edit profile and change password - Admin page
-
-function toggleSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      section.classList.toggle('hidden');
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function hideSection(sectionId) {
-      document.getElementById(sectionId).classList.add('hidden');
-    }
-
-    function handleSuccess(message, sectionToClose) {
-      const alertBox = document.getElementById('alertBox');
-      const alertMessage = document.getElementById('alertMessage');
-
-      alertMessage.textContent = message;
-      alertBox.classList.remove('hidden', 'opacity-0');
-      alertBox.classList.add('opacity-100');
-      alertBox.scrollIntoView({ behavior: 'smooth' });
-
-      // Auto-close alert and section after 3 seconds
-      setTimeout(() => {
-        closeAlert();
-        hideSection(sectionToClose);
-      }, 2000);
-    }
-
-    function closeAlert() {
-      const alertBox = document.getElementById('alertBox');
-      alertBox.classList.add('opacity-0');
-      setTimeout(() => {
-        alertBox.classList.add('hidden');
-      }, 500); // Matches CSS transition duration
-    }

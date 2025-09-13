@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="/js/script.js"></script>
+    <script defer src="/js/employeeDashboard.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Top Navigation -->
+    <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold">UASPL</h1>
+            <p class="text-sm text-gray-500">Construction • Redevelopment</p>
+        </div>
+        <nav class="space-x-5 text-sm font-medium text-gray-600">
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="adminDashboard.html" class="top-link">Dashboard</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Projects</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Tasks</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Compliance</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Meetings</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Documents</a>
+            </button>
+
+            <span class="ml-6">Welcome, <strong>Employee</strong></span>
+            <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
+                <!-- <a href="adminProfile.html">A</a> -->
+                <button id="profileDropdownBtn"
+                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
+                    aria-haspopup="true" aria-expanded="false">
+                    E
+                </button>
+            </div>
+
+            <!-- Dropdown menu -->
+            <div id="profileDropdownMenu"
+                class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg hidden z-50" role="menu"
+                aria-orientation="vertical" aria-labelledby="profileDropdownBtn">
+                <!-- <a href="adminProfile.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">View
+                    Details</a> -->
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">Logout</a>
+            </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- <main class="flex min-h-screen"></main> -->
+        
+
+    <div class="p-6 max-w-7xl mx-auto space-y-10 mt-4">
+
+        <!-- Second design starts -->
+        <!-- Dashboard Cards -->
+    <main class="col-span-3 space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Assigned Projects</h3>
+          <p class="text-2xl font-semibold text-blue-600">5</p>
+          <p class="text-xs text-gray-400">Currently working</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Tasks Pending</h3>
+          <p class="text-2xl font-semibold text-red-500">8</p>
+          <p class="text-xs text-gray-400">Need attention</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Upcoming Meetings</h3>
+          <p class="text-2xl font-semibold text-green-600">2</p>
+          <p class="text-xs text-gray-400">Scheduled this week</p>
+        </div>
+      </div>
+
+      <!-- Project Table -->
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">My Projects</h2>
+        <table class="w-full text-sm text-left border border-gray-200 rounded">
+          <thead class="bg-gray-100 text-gray-700">
+            <tr>
+              <th class="py-2 px-4 border">Project</th>
+              <th class="py-2 px-4 border">Society</th>
+              <th class="py-2 px-4 border">Status</th>
+              <th class="py-2 px-4 border">Deadline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border">Tower A Renovation</td>
+              <td class="py-2 px-4 border">Society 101</td>
+              <td class="py-2 px-4 border text-green-600">On Track</td>
+              <td class="py-2 px-4 border">25 Sep 2025</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border">Parking Lot Construction</td>
+              <td class="py-2 px-4 border">Society 104</td>
+              <td class="py-2 px-4 border text-yellow-600">Delayed</td>
+              <td class="py-2 px-4 border">10 Oct 2025</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border">Clubhouse Repair</td>
+              <td class="py-2 px-4 border">Society 106</td>
+              <td class="py-2 px-4 border text-red-600">Critical</td>
+              <td class="py-2 px-4 border">18 Sep 2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Second design ends -->
+
+    <!-- TASKS -->
+    <section class="bg-white shadow rounded p-6">
+      <h2 class="text-xl font-bold mb-4">My Tasks</h2>
+      <ul class="space-y-3">
+        <li class="flex justify-between items-center">
+          <span>Complete site inspection report</span>
+          <select class="border rounded px-2 py-1">
+            <option>Pending</option>
+            <option>In Progress</option>
+            <option>Completed</option>
+          </select>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Upload daily work log</span>
+          <select class="border rounded px-2 py-1">
+            <option>Pending</option>
+            <option>In Progress</option>
+            <option>Completed</option>
+          </select>
+        </li>
+      </ul>
+    </section>
+
+    <!-- COMPLIANCE -->
+    <section class="bg-white shadow rounded p-6">
+      <h2 class="text-xl font-bold mb-4">Compliance Checklist</h2>
+      <ul class="space-y-2">
+        <li><input type="checkbox" class="mr-2"> Fire Safety Clearance</li>
+        <li><input type="checkbox" class="mr-2"> Environmental Impact Report</li>
+        <li><input type="checkbox" class="mr-2"> Construction Material Audit</li>
+      </ul>
+    </section>
+
+    <!-- MEETINGS -->
+    <section class="bg-white shadow rounded p-6">
+      <h2 class="text-xl font-bold mb-4">Upcoming Meetings</h2>
+      <ul class="space-y-2">
+        <li>
+          <strong>Site Review</strong> – 18th Sept, 11:00 AM – <em>Project 101</em>
+        </li>
+        <li>
+          <strong>Weekly Briefing</strong> – 20th Sept, 3:00 PM – <em>All Projects</em>
+        </li>
+      </ul>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="bg-white shadow rounded p-6">
+      <h2 class="text-xl font-bold mb-4">Document Upload</h2>
+      <form class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Upload Document</label>
+          <input type="file" class="border border-gray-300 rounded px-3 py-2 w-full">
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Upload
+        </button>
+      </form>
+    </section>
+
+  </div>
+
+</body>
+</html>
