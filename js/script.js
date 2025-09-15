@@ -18,7 +18,7 @@ const demoEmp = {
 
 const demoSoc = {
   userId: "demoSoc",
-  password: "demoPass", 
+  password: "demoPass",
   role: "Society",
 };
 
@@ -60,18 +60,32 @@ if (loginForm) {
     ) {
       showAlert("Login successful! Redirecting...", "green");
 
+      const baseUrl =
+        window.location.origin +
+        window.location.pathname.replace("index.html", "");
+
       setTimeout(() => {
         if (role === "Admin") {
-          window.location.href = "./adminDashboard.html";
-          clearForm();
+          window.location.href = baseUrl + "adminDashboard.html";
         } else if (role === "Employee") {
-          window.location.href = "./employeeDashboard.html";
-          clearForm();
+          window.location.href = baseUrl + "employeeDashboard.html";
         } else if (role === "Society") {
-          window.location.href = "./society.html";
-          clearForm();
+          window.location.href = baseUrl + "society.html";
         }
+        clearForm();
       }, 1000);
+      // setTimeout(() => {
+      //   if (role === "Admin") {
+      //     window.location.href = "./adminDashboard.html";
+      //     clearForm();
+      //   } else if (role === "Employee") {
+      //     window.location.href = "./employeeDashboard.html";
+      //     clearForm();
+      //   } else if (role === "Society") {
+      //     window.location.href = "./society.html";
+      //     clearForm();
+      //   }
+      // }, 1000);
     } else {
       showAlert("Invalid credentials.", "red");
       clearForm();
@@ -128,7 +142,6 @@ function showAlert(message, type) {
       : "text-red-700 bg-red-100 border border-red-300 p-2 rounded");
   alertBox.classList.remove("hidden");
 }
-
 
 // script common to all pages(Top and side navbar)
 
