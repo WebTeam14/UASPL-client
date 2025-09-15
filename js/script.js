@@ -62,13 +62,13 @@ if (loginForm) {
 
       setTimeout(() => {
         if (role === "Admin") {
-          window.location.href = "adminDashboard.html";
+          window.location.href = "./adminDashboard.html";
           clearForm();
         } else if (role === "Employee") {
-          window.location.href = "employeeDashboard.html";
+          window.location.href = "./employeeDashboard.html";
           clearForm();
         } else if (role === "Society") {
-          window.location.href = "society.html";
+          window.location.href = "./society.html";
           clearForm();
         }
       }, 1000);
