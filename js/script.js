@@ -53,47 +53,60 @@ if (loginForm) {
     const storedUser = JSON.parse(localStorage.getItem(userId));
 
     if (
-      storedUser &&
-      storedUser.userId === userId &&
-      storedUser.password === password &&
-      storedUser.role === role
-    ) {
-      console.log(role);
-      showAlert("Login successful! Redirecting...", "green");
-
-      const baseUrl =
-        window.location.origin +
-        window.location.pathname.replace("index.html", "");
-
-      setTimeout(() => {
-        // if (role === "Admin") {
-        //   window.location.href = baseUrl + "adminDashboard.html";
-        // } else if (role === "Employee") {
-        //   window.location.href = baseUrl + "employeeDashboard.html";
-        // } else if (role === "Society") {
-        //   window.location.href = baseUrl + "society.html";
-        // }
-        setTimeout(() => {
-  window.location.href = "https://webteam14.github.io/UASPL-client/adminDashboard.html";
-}, 1000);
-        clearForm();
-      }, 1000);
-      // setTimeout(() => {
-      //   if (role === "Admin") {
-      //     window.location.href = "./adminDashboard.html";
-      //     clearForm();
-      //   } else if (role === "Employee") {
-      //     window.location.href = "./employeeDashboard.html";
-      //     clearForm();
-      //   } else if (role === "Society") {
-      //     window.location.href = "./society.html";
-      //     clearForm();
-      //   }
-      // }, 1000);
-    } else {
-      showAlert("Invalid credentials.", "red");
-      clearForm();
+  storedUser &&
+  storedUser.userId === userId &&
+  storedUser.password === password &&
+  storedUser.role === role
+) {
+  console.log("Login matched:", storedUser);
+  showAlert("Login successful! Redirecting...", "green");
+  setTimeout(() => {
+    if (role === "Admin") {
+      console.log("Redirecting to Admin Dashboard...");
+      window.location.href = "adminDashboard.html";
+    } else if (role === "Employee") {
+      console.log("Redirecting to Employee Dashboard...");
+      window.location.href = "employeeDashboard.html";
+    } else if (role === "Society") {
+      console.log("Redirecting to Society Dashboard...");
+      window.location.href = "society.html";
     }
+    clearForm();
+  }, 1000);
+} else {
+  console.log("Login failed. Entered values:", { userId, password, role });
+  console.log("Stored user:", storedUser);
+  showAlert("Invalid credentials.", "red");
+  clearForm();
+}
+
+    // if (
+    //   storedUser &&
+    //   storedUser.userId === userId &&
+    //   storedUser.password === password &&
+    //   storedUser.role === role
+    // ) {
+    //   console.log(role);
+    //   showAlert("Login successful! Redirecting...", "green");
+
+    //   const baseUrl =
+    //     window.location.origin +
+    //     window.location.pathname.replace("index.html", "");
+
+    //   setTimeout(() => {
+    //     if (role === "Admin") {
+    //       window.location.href = baseUrl + "adminDashboard.html";
+    //     } else if (role === "Employee") {
+    //       window.location.href = baseUrl + "employeeDashboard.html";
+    //     } else if (role === "Society") {
+    //       window.location.href = baseUrl + "society.html";
+    //     }
+    //     clearForm();
+    //   }, 1000);
+    // } else {
+    //   showAlert("Invalid credentials.", "red");
+    //   clearForm();
+    // }
   });
 }
 
