@@ -2,9 +2,6 @@ console.log("script loaded");
 
 // Script for Login page
 
-// Add a demo user to localStorage
-// Script for Login page
-
 // Define demo users
 const demoUser = {
   userId: "demoUser",
