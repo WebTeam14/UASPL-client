@@ -36,46 +36,88 @@ localStorage.setItem(demoSoc.userId, JSON.stringify(demoSoc));
 const loginForm = document.getElementById("loginForm");
 const alertBox = document.getElementById("alert");
 
-loginForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+if (loginForm) {
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  const userId = document.getElementById("userId").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const role = document.getElementById("role").value;
+    const userId = document.getElementById("userId").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const role = document.getElementById("role").value;
 
-  if (!userId || !password || !role) {
-    showAlert("Please fill in all fields.", "red");
-    return;
-  }
+    if (!userId || !password || !role) {
+      showAlert("Please fill in all fields.", "red");
+      return;
+    }
 
-  // Get user by ID from localStorage
-  const storedUser = JSON.parse(localStorage.getItem(userId));
+    // Get user by ID from localStorage
+    const storedUser = JSON.parse(localStorage.getItem(userId));
 
-  if (
-    storedUser &&
-    storedUser.userId === userId &&
-    storedUser.password === password &&
-    storedUser.role === role
-  ) {
-    showAlert("Login successful! Redirecting...", "green");
+    if (
+      storedUser &&
+      storedUser.userId === userId &&
+      storedUser.password === password &&
+      storedUser.role === role
+    ) {
+      showAlert("Login successful! Redirecting...", "green");
 
-    setTimeout(() => {
-      if (role === "Admin") {
-        window.location.href = "adminDashboard.html";
-        clearForm();
-      } else if (role === "Employee") {
-        window.location.href = "employeeDashboard.html";
-        clearForm();
-      } else if (role === "Society") {
-        window.location.href = "society.html";
-        clearForm();
-      }
-    }, 1000);
-  } else {
-    showAlert("Invalid credentials.", "red");
-    clearForm();
-  }
-});
+      setTimeout(() => {
+        if (role === "Admin") {
+          window.location.href = "adminDashboard.html";
+          clearForm();
+        } else if (role === "Employee") {
+          window.location.href = "employeeDashboard.html";
+          clearForm();
+        } else if (role === "Society") {
+          window.location.href = "society.html";
+          clearForm();
+        }
+      }, 1000);
+    } else {
+      showAlert("Invalid credentials.", "red");
+      clearForm();
+    }
+  });
+}
+
+// loginForm.addEventListener("submit", function (e) {
+//   e.preventDefault();
+
+//   const userId = document.getElementById("userId").value.trim();
+//   const password = document.getElementById("password").value.trim();
+//   const role = document.getElementById("role").value;
+
+//   if (!userId || !password || !role) {
+//     showAlert("Please fill in all fields.", "red");
+//     return;
+//   }
+
+//   const storedUser = JSON.parse(localStorage.getItem(userId));
+
+//   if (
+//     storedUser &&
+//     storedUser.userId === userId &&
+//     storedUser.password === password &&
+//     storedUser.role === role
+//   ) {
+//     showAlert("Login successful! Redirecting...", "green");
+
+//     setTimeout(() => {
+//       if (role === "Admin") {
+//         window.location.href = "adminDashboard.html";
+//         clearForm();
+//       } else if (role === "Employee") {
+//         window.location.href = "employeeDashboard.html";
+//         clearForm();
+//       } else if (role === "Society") {
+//         window.location.href = "society.html";
+//         clearForm();
+//       }
+//     }, 1000);
+//   } else {
+//     showAlert("Invalid credentials.", "red");
+//     clearForm();
+//   }
+// });
 
 function showAlert(message, type) {
   alertBox.textContent = message;
