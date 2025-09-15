@@ -18,7 +18,7 @@ const demoEmp = {
 
 const demoSoc = {
   userId: "demoSoc",
-  password: "demoPass", // fixed typo
+  password: "demoPass", 
   role: "Society",
 };
 
