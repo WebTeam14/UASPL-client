@@ -1,71 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/uaspl_logo.jfif" type="image/png" />
     <title>Login - Urbann Analysis & Solution</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  </head>
 
-<body class="bg-cover bg-center min-h-screen flex items-center justify-center"
-    style="background-image: url('images/3-2.jpg');">
+  <body
+    class="bg-cover bg-center min-h-screen flex items-center justify-center"
+    style="background-image: url('images/3-2.jpg')"
+  >
+    <div
+      class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-md w-full"
+    >
+      <!-- Logo + Heading -->
+      <div class="text-center mb-6">
+        <img
+          src="images/uaspl_logo.jfif"
+          alt="Urbann Logo"
+          class="mx-auto h-20 mb-2"
+        />
+        <!-- Replace with actual logo path -->
+        <!-- <h1 class="text-2xl font-bold text-orange-600">URBANN ANALYSIS & SOLUTION</h1> -->
+        <p class="text-gray-700 text-sm">Construction &bull; Redevelopment</p>
+      </div>
 
-    <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-md w-full">
-
-        <!-- Logo + Heading -->
-        <div class="text-center mb-6">
-            <img src="images/uaspl_logo.jfif" alt="Urbann Logo" class="mx-auto h-20 mb-2" />
-            <!-- Replace with actual logo path -->
-            <!-- <h1 class="text-2xl font-bold text-orange-600">URBANN ANALYSIS & SOLUTION</h1> -->
-            <p class="text-gray-700 text-sm">Construction &bull; Redevelopment</p>
+      <!-- Login Form -->
+      <form id="loginForm">
+        <!-- User ID -->
+        <div class="mb-4">
+          <label for="userId" class="block text-sm font-medium text-gray-700"
+            >User iD</label
+          >
+          <input
+            type="text"
+            id="userId"
+            placeholder="Enter your User ID"
+            required
+            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
         </div>
 
-        <div id="alert" class="text-sm mb-4 text-center hidden"></div>
+        <!-- Password -->
+        <div class="mb-1">
+          <label for="password" class="block text-sm font-medium text-gray-700"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
 
-        <!-- Login Form -->
-        <form id="loginForm">
-            <!-- User ID -->
-            <div class="mb-4">
-                <label for="userId" class="block text-sm font-medium text-gray-700">User iD</label>
-                <input type="text" id="userId" placeholder="Enter your User ID" required
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
-            </div>
+        <!-- Forgot Password -->
+        <div class="text-right mb-4">
+          <a href="#" class="text-sm text-blue-600 hover:underline"
+            >Forgot Password?</a
+          >
+        </div>
 
-            <!-- Password -->
-            <div class="mb-1">
-                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
-            </div>
+        <!-- Role -->
+        <div class="mb-6">
+          <label for="role" class="block text-sm font-medium text-gray-700"
+            >Role</label
+          >
+          <select
+            id="role"
+            required
+            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option value="">Select Role</option>
+            <option value="Admin">Admin</option>
+            <option value="Employee">Employee</option>
+            <option value="Society">Society</option>
+          </select>
+        </div>
 
-            <!-- Forgot Password -->
-            <div class="text-right mb-4">
-                <a href="#" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
-            </div>
-
-            <!-- Role -->
-            <div class="mb-6">
-                <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
-                <select id="role" required
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                    <option value="">Select Role</option>
-                    <option value="Admin">Admin</option>
-                    <option value="Employee">Employee</option>
-                    <option value="Society">Society</option>
-                </select>
-            </div>
-
-            <!-- Submit -->
-            <button type="submit"
-                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
-                Login
-            </button>
-        </form>
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+        >
+          Login
+        </button>
+      </form>
+      <div id="alert" class="text-sm mb-4 text-center hidden"></div>
     </div>
     <script src="js/script.js"></script>
-
-</body>
-
+  </body>
 </html>
