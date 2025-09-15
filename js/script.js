@@ -39,6 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm");
   const alertBox = document.getElementById("alert");
 
+  function showAlert(message, type) {
+    alertBox.textContent = message;
+    alertBox.className =
+      "text-sm mb-4 text-center " +
+      (type === "green"
+        ? "text-green-700 bg-green-100 border border-green-300 p-2 rounded"
+        : "text-red-700 bg-red-100 border border-red-300 p-2 rounded");
+    alertBox.classList.remove("hidden");
+  }
+
   if (loginForm) {
     loginForm.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -80,31 +90,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 //   const baseUrl =
-    //     window.location.origin +
-    //     window.location.pathname.replace("index.html", "");
+//     window.location.origin +
+//     window.location.pathname.replace("index.html", "");
 
-    //   setTimeout(() => {
-    //     if (role === "Admin") {
-    //       window.location.href = baseUrl + "adminDashboard.html";
-    //     } else if (role === "Employee") {
-    //       window.location.href = baseUrl + "employeeDashboard.html";
-    //     } else if (role === "Society") {
-    //       window.location.href = baseUrl + "society.html";
-    //     }
-    //     clearForm();
-    //   }, 1000);
-
-function showAlert(message, type) {
-  alertBox.textContent = message;
-  alertBox.className =
-    "text-sm mb-4 text-center " +
-    (type === "green"
-      ? "text-green-700 bg-green-100 border border-green-300 p-2 rounded"
-      : "text-red-700 bg-red-100 border border-red-300 p-2 rounded");
-  alertBox.classList.remove("hidden");
-}
+//   setTimeout(() => {
+//     if (role === "Admin") {
+//       window.location.href = baseUrl + "adminDashboard.html";
+//     } else if (role === "Employee") {
+//       window.location.href = baseUrl + "employeeDashboard.html";
+//     } else if (role === "Society") {
+//       window.location.href = baseUrl + "society.html";
+//     }
+//     clearForm();
+//   }, 1000);
 
 // script common to all pages(Top and side navbar)
 
