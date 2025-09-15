@@ -83,25 +83,25 @@
             <div class="h-10 flex items-center justify-center font-bold">
                 Society Code
             </div>
-            <div class="w-10 h-10 bg-blue-200 text-white rounded-lg flex items-center justify-center font-bold">
+            <div class="w-10 h-10 bg-blue-200 text-white rounded-lg flex items-center justify-center font-bold" onclick="showDetails('roshaniChs')">
                 <a href="#" class="sidebar-link" id="link-D">101</a>
             </div>
-            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold" onclick="showDetails('silverChs')">
                 <a href="#" class="sidebar-link" id="link-C">102</a>
             </div>
-            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold" onclick="showDetails('ganeshChs')">
                 <a href="#" class="sidebar-link" id="link-A">103</a>
             </div>
-            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold" onclick="showDetails('nivastiChs')">
                 <a href="#" class="sidebar-link" id="link-V">104</a>
             </div>
-            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold" onclick="showDetails('shubhamChs')">
                 <a href="#" class="sidebar-link" id="link-M">105</a>
             </div>
-            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold" onclick="showDetails('chawlaChs')">
                 <a href="#" class="sidebar-link" id="link-S">106</a>
             </div>
-            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold">
+            <div class="w-10 h-10 bg-white border rounded-lg flex items-center justify-center font-bold" onclick="showDetails('jimmyChs')">
                 <a href="#" class="sidebar-link" id="link-P">107</a>
             </div>
         </aside>
@@ -152,9 +152,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="col-span-2 bg-white h-100 p-4 rounded-xl shadow">
                     <h2 class="font-semibold text-gray-700 mb-4">Project Progress</h2>
-                    <div class="bg-gray-100 h-80 flex items-center justify-center text-gray-500">
+                    <div class="bg-gray-100 h-85 flex items-center justify-center text-gray-500">
                         <!-- [Progress Chart Placeholder] -->
-                        <canvas id="progressChart" class="w-full h-64"></canvas>
+                        <canvas id="progressChart" class="w-full h-100"></canvas>
 
                         <!-- <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow">
                             <h2 class="text-xl font-bold mb-4">Project Completion Status</h2>
@@ -235,6 +235,91 @@
                         <li>Maple Heights</li>
                         <li>Blue Ridge Apartments</li>
                         <li>Orchid Greens</li>
+                    </ul>
+                </div>
+
+                <!-- Society Code Cards -->
+                <!-- 101 -->
+                <div id="roshaniChs" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Society Code: 101</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Name: Roshani Co-operative Housing Society</li>
+                        <li>Website: <a href="https://roshanichs.com/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                https://roshanichs.com/
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- 102 -->
+                <div id="silverChs" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Society Code: 102</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Name: Silvernest Co-operative Housing Society</li>
+                        <li>Website: <a href="https://silvernestchs.in/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                https://silvernestchs.in/
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- 103 -->
+                <div id="ganeshChs" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Society Code: 103</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Name: Shree ganesh Panchami Co-operative Housing Society</li>
+                        <li>Website: <a href="https://shreeganeshpanchamichs.in/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                https://shreeganeshpanchamichs.in/
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- 104 -->
+                <div id="nivastiChs" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Society Code: 104</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Name: Nivasti Tvisa Co-operative Housing Society</li>
+                        <li>Website: <a href="https://nivastitvisachs.in/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                https://nivastitvisachs.in/
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- 105 -->
+                <div id="shubhamChs" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Society Code: 105</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Name: Shubham Co-operative Housing Society</li>
+                        <li>Website: <a href="https://shubhamchs.in/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                https://shubhamchs.in/
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- 106 -->
+                <div id="chawlaChs" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Society Code: 106</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Name: Chawla Co-operative Housing Society</li>
+                        <li>Website: <a href="https://chawlachs.in/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                https://chawlachs.in/
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- 107 -->
+                <div id="jimmyChs" class="bg-white p-4 rounded-xl shadow hidden">
+                    <h2 class="text-xl font-semibold mb-2">Society Code: 107</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                        <li>Name: Jimmy Park Co-operative Housing Society</li>
+                        <li>Website: <a href="https://jimmypark2chs.in/" target="_blank"
+                                class="text-blue-600 hover:underline">
+                                https://jimmypark2chs.in/
+                            </a></li>
                     </ul>
                 </div>
 
