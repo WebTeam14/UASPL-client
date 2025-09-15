@@ -58,6 +58,7 @@ if (loginForm) {
       storedUser.password === password &&
       storedUser.role === role
     ) {
+      console.log(role);
       showAlert("Login successful! Redirecting...", "green");
 
       const baseUrl =
@@ -65,13 +66,16 @@ if (loginForm) {
         window.location.pathname.replace("index.html", "");
 
       setTimeout(() => {
-        if (role === "Admin") {
-          window.location.href = baseUrl + "adminDashboard.html";
-        } else if (role === "Employee") {
-          window.location.href = baseUrl + "employeeDashboard.html";
-        } else if (role === "Society") {
-          window.location.href = baseUrl + "society.html";
-        }
+        // if (role === "Admin") {
+        //   window.location.href = baseUrl + "adminDashboard.html";
+        // } else if (role === "Employee") {
+        //   window.location.href = baseUrl + "employeeDashboard.html";
+        // } else if (role === "Society") {
+        //   window.location.href = baseUrl + "society.html";
+        // }
+        setTimeout(() => {
+  window.location.href = "https://webteam14.github.io/UASPL-client/adminDashboard.html";
+}, 1000);
         clearForm();
       }, 1000);
       // setTimeout(() => {
