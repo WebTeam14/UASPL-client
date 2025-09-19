@@ -1,15 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Society</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="./js/script.js"></script>
-    <link rel="icon" href="data:," />
-  </head>
 
-  <body>
-    <h2>Society</h2>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Society</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="./js/script.js"></script>
+  <script defer src="./js/society.js"></script>
+  <link rel="icon" href="data:," />
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <!-- Top Navigation -->
+  <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+    <div>
+      <h1 class="text-xl font-bold">UASPL</h1>
+      <p class="text-sm text-gray-500">Construction • Redevelopment</p>
+    </div>
+    <nav class="space-x-5 text-sm font-medium text-gray-600">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="adminDashboard.html" class="top-link">Dashboard</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="compliance.html" class="top-link">Compliance</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="architecture.html" class="top-link">Architecture</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="#" class="top-link">Civil</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="#" class="top-link">MEP</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="#" class="top-link">Development</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="#" class="top-link">Legal</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="#" class="top-link">Licening</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="#" class="top-link">QM/QC</a>
+      </button>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <a href="#" class="top-link">Meetings</a>
+      </button>
+
+      <span class="ml-6">Welcome, <strong>Society</strong></span>
+      <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
+        <!-- <a href="adminProfile.html">A</a> -->
+        <button id="profileDropdownBtn"
+          class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
+          aria-haspopup="true" aria-expanded="false">
+          S
+        </button>
+      </div>
+
+      <!-- Dropdown menu -->
+      <div id="profileDropdownMenu" class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg hidden z-50"
+        role="menu" aria-orientation="vertical" aria-labelledby="profileDropdownBtn">
+        <!-- <a href="adminProfile.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">View
+                    Details</a> -->
+        <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">Logout</a>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="p-6 max-w-7xl mx-auto space-y-10 mt-4">
+
+    <!-- Dashboard Content -->
+    <main class="col-span-3 space-y-6">
+
+      <!-- Quick Stats -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Pending Complaints</h3>
+          <p id="complaintCount" class="text-2xl font-semibold text-red-500">0</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Unpaid Maintenance</h3>
+          <p id="pendingAmount" class="text-2xl font-semibold text-orange-500">₹ 0</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Upcoming Events</h3>
+          <p class="text-2xl font-semibold text-green-600">2</p>
+        </div>
+      </div>
+
+      <!-- Complaints Section -->
+      <div id="complaints" class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">My Complaints</h2>
+
+        <!-- Complaint Form -->
+        <form id="complaintForm" class="mb-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Issue -->
+          <input type="text" id="complaintIssue" placeholder="Enter issue" class="px-3 py-2 border rounded" required />
+
+          <!-- Status Dropdown -->
+          <select id="complaintStatus" class="px-3 py-2 border rounded" required>
+            <option value="">Select Status</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+
+          <!-- Submit -->
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+            Add Complaint
+          </button>
+        </form>
+
+        <!-- Complaints Table -->
+        <table class="w-full text-sm text-left border border-gray-200 rounded">
+          <thead class="bg-gray-100 text-gray-700">
+            <tr>
+              <th class="py-2 px-4 border">Complaint No</th>
+              <th class="py-2 px-4 border">Issue</th>
+              <th class="py-2 px-4 border">Status</th>
+              <th class="py-2 px-4 border">Action</th>
+            </tr>
+          </thead>
+          <tbody id="complaintTable"></tbody>
+        </table>
+      </div>
+
+
+      <!-- Maintenance Bills -->
+      <div id="bills" class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Maintenance Bills</h2>
+        <ul id="billList" class="divide-y divide-gray-200"></ul>
+      </div>
+
+      <!-- Notices -->
+      <div id="notices" class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Society Notices</h2>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+          <li>AGM scheduled on <span class="font-semibold">25th Sep 2025</span>.</li>
+          <li>Water supply maintenance on <span class="font-semibold">20th Sep 2025</span>.</li>
+        </ul>
+      </div>
+
+      <!-- Events -->
+      <div id="events" class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Upcoming Events</h2>
+        <ul class="divide-y divide-gray-200">
+          <li class="py-2 flex justify-between">
+            <span>Ganesh Chaturthi Celebration</span>
+            <span class="text-gray-500 text-sm">15 Sep 2025</span>
+          </li>
+          <li class="py-2 flex justify-between">
+            <span>Annual Sports Day</span>
+            <span class="text-gray-500 text-sm">30 Sep 2025</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
+</body>
+
 </html>

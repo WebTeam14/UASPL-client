@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="./js/script.js"></script>
+    <script defer src="./js/compliance.js"></script>
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <div>
+            <h1 class="text-xl font-bold">UASPL</h1>
+            <p class="text-sm text-gray-500">Construction • Redevelopment</p>
+        </div>
+        <nav class="space-x-5 text-sm font-medium text-gray-600">
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="adminDashboard.html" class="top-link">Dashboard</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="compliance.html" class="top-link">Compliance</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="architecture.html" class="top-link">Architecture</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Civil</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">MEP</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Development</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Legal</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Licening</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">QM/QC</a>
+            </button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <a href="#" class="top-link">Meetings</a>
+            </button>
+
+            <span class="ml-6">Welcome, <strong>Employee</strong></span>
+            <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
+                <!-- <a href="adminProfile.html">A</a> -->
+                <button id="profileDropdownBtn"
+                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
+                    aria-haspopup="true" aria-expanded="false">
+                    E
+                </button>
+            </div>
+
+            <!-- Dropdown menu -->
+            <div id="profileDropdownMenu"
+                class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg hidden z-50" role="menu"
+                aria-orientation="vertical" aria-labelledby="profileDropdownBtn">
+                <!-- <a href="adminProfile.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">View
+                    Details</a> -->
+                <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">Logout</a>
+            </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="p-6 max-w-7xl mx-auto space-y-10 mt-4">
+
+        <!-- Compliance Content -->
+        <main class="col-span-3 space-y-6">
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-sm text-gray-500">Total Compliances</h3>
+                    <p class="text-2xl font-semibold text-blue-600">6</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-sm text-gray-500">Pending / Expired</h3>
+                    <p class="text-2xl font-semibold text-red-500">2</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h3 class="text-sm text-gray-500">Up-to-date</h3>
+                    <p class="text-2xl font-semibold text-green-600">4</p>
+                </div>
+            </div>
+
+            <!-- Compliance Table -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-lg font-semibold mb-4">Compliance Records</h2>
+                <table class="w-full text-sm text-left border border-gray-200 rounded">
+                    <thead class="bg-gray-100 text-gray-700">
+                        <tr>
+                            <th class="py-2 px-4 border">Document</th>
+                            <th class="py-2 px-4 border">Status</th>
+                            <th class="py-2 px-4 border">Expiry Date</th>
+                            <th class="py-2 px-4 border">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border">Society Registration Certificate</td>
+                            <td class="py-2 px-4 border text-green-600">Valid</td>
+                            <td class="py-2 px-4 border">15 Dec 2026</td>
+                            <td class="py-2 px-4 border">
+                                <a href="#" class="text-blue-600 hover:underline">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border">Fire Safety Certificate</td>
+                            <td class="py-2 px-4 border text-red-600">Expired</td>
+                            <td class="py-2 px-4 border">10 Aug 2024</td>
+                            <td class="py-2 px-4 border">
+                                <button class="bg-orange-500 text-white px-2 py-1 rounded">Renew</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border">Lift License</td>
+                            <td class="py-2 px-4 border text-green-600">Valid</td>
+                            <td class="py-2 px-4 border">01 Mar 2026</td>
+                            <td class="py-2 px-4 border">
+                                <a href="#" class="text-blue-600 hover:underline">View</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border">Property Tax Receipt</td>
+                            <td class="py-2 px-4 border text-red-600">Pending</td>
+                            <td class="py-2 px-4 border">--</td>
+                            <td class="py-2 px-4 border">
+                                <button class="bg-blue-600 text-white px-2 py-1 rounded">Pay Now</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border">Annual Audit Report</td>
+                            <td class="py-2 px-4 border text-green-600">Submitted</td>
+                            <td class="py-2 px-4 border">FY 2024–25</td>
+                            <td class="py-2 px-4 border">
+                                <a href="#" class="text-blue-600 hover:underline">Download</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Upload Compliance -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-lg font-semibold mb-4">Upload New Compliance</h2>
+                <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <input type="text" placeholder="Document Name" class="px-3 py-2 border rounded" required>
+                    <input type="date" class="px-3 py-2 border rounded" required>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Upload</button>
+                </form>
+            </div>
+
+        </main>
+    </div>
+</body>
+
+</html>

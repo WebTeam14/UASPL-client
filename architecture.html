@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee</title>
+    <title>Architecture</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="./js/script.js"></script>
-    <script defer src="./js/employeeDashboard.js"></script>
+        <script defer src="./js/architecture.js"></script>
     <link rel="icon" href="data:,">
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
     <!-- Top Navigation -->
     <header class="bg-white shadow-md py-4 px-6 flex justify-between items-center">
         <div>
@@ -71,131 +70,88 @@
         </nav>
     </header>
 
-    <!-- <main class="flex min-h-screen"></main> -->
-        
-
     <div class="p-6 max-w-7xl mx-auto space-y-10 mt-4">
-
-        <!-- Dashboard Cards -->
     <main class="col-span-3 space-y-6">
+
+      <!-- Quick Stats -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
         <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-lg text-gray-600">Assigned Projects</h3>
+          <h3 class="text-sm text-gray-500">Approved Designs</h3>
+          <p class="text-2xl font-semibold text-green-600">12</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Pending Approvals</h3>
+          <p class="text-2xl font-semibold text-orange-500">3</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-sm text-gray-500">Ongoing Constructions</h3>
           <p class="text-2xl font-semibold text-blue-600">5</p>
-          <p class="text-xs text-gray-400">Currently working</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-lg text-gray-600">Tasks Pending</h3>
-          <p class="text-2xl font-semibold text-red-500">8</p>
-          <p class="text-xs text-gray-400">Need attention</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-lg text-gray-600">Upcoming Meetings</h3>
-          <p class="text-2xl font-semibold text-green-600">2</p>
-          <p class="text-xs text-gray-400">Scheduled this week</p>
         </div>
       </div>
 
-      <!-- Project Table -->
-      <div class="bg-white shadow p-6">
-        <h2 class="text-lg font-semibold mb-4">My Projects</h2>
+      <!-- Architecture Projects Table -->
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Architecture Projects</h2>
         <table class="w-full text-sm text-left border border-gray-200 rounded">
           <thead class="bg-gray-100 text-gray-700">
             <tr>
               <th class="py-2 px-4 border">Project</th>
-              <th class="py-2 px-4 border">Society</th>
+              <th class="py-2 px-4 border">Architect</th>
               <th class="py-2 px-4 border">Status</th>
-              <th class="py-2 px-4 border">Deadline</th>
+              <th class="py-2 px-4 border">Progress</th>
+              <th class="py-2 px-4 border">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="py-2 px-4 border">Tower A Renovation</td>
-              <td class="py-2 px-4 border">Society 101</td>
-              <td class="py-2 px-4 border text-green-600">On Track</td>
-              <td class="py-2 px-4 border">25 Sep 2025</td>
+              <td class="py-2 px-4 border">Ar. Mehta & Associates</td>
+              <td class="py-2 px-4 border text-green-600">Approved</td>
+              <td class="py-2 px-4 border">80%</td>
+              <td class="py-2 px-4 border">
+                <button onclick="openModal('images/plan1.jpg')" class="text-blue-600 hover:underline">View Plan</button>
+            </td>
             </tr>
             <tr>
-              <td class="py-2 px-4 border">Parking Lot Construction</td>
-              <td class="py-2 px-4 border">Society 104</td>
-              <td class="py-2 px-4 border text-yellow-600">Delayed</td>
-              <td class="py-2 px-4 border">10 Oct 2025</td>
+              <td class="py-2 px-4 border">Parking Extension</td>
+              <td class="py-2 px-4 border">Ar. Shah Designs</td>
+              <td class="py-2 px-4 border text-orange-600">Pending</td>
+              <td class="py-2 px-4 border">--</td>
+              <td class="py-2 px-4 border"><button class="bg-orange-500 text-white px-2 py-1 rounded">Submit Docs</button></td>
             </tr>
             <tr>
-              <td class="py-2 px-4 border">Clubhouse Repair</td>
-              <td class="py-2 px-4 border">Society 106</td>
-              <td class="py-2 px-4 border text-red-600">Critical</td>
-              <td class="py-2 px-4 border">18 Sep 2025</td>
+              <td class="py-2 px-4 border">Clubhouse Interior</td>
+              <td class="py-2 px-4 border">Creative Studio</td>
+              <td class="py-2 px-4 border text-blue-600">In Progress</td>
+              <td class="py-2 px-4 border">45%</td>
+              <td class="py-2 px-4 border"><a href="#" class="text-blue-600 hover:underline">Preview</a></td>
             </tr>
           </tbody>
         </table>
       </div>
-   
 
-    <!-- TASKS -->
-    <section class="bg-white shadow rounded p-6">
-      <h2 class="text-lg font-semibold mb-4">My Tasks</h2>
-      <ul class="space-y-2">
-        <li class="flex justify-between items-center">
-          <span>Complete site inspection report</span>
-          <select class="border rounded px-2 py-1">
-            <option>Pending</option>
-            <option>In Progress</option>
-            <option>Completed</option>
-          </select>
-        </li>
-        <li class="flex justify-between items-center">
-          <span>Upload daily work log</span>
-          <select class="border rounded px-2 py-1">
-            <option>Pending</option>
-            <option>In Progress</option>
-            <option>Completed</option>
-          </select>
-        </li>
-      </ul>
-    </section>
+      <!-- Upload New Design -->
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-lg font-semibold mb-4">Upload New Design</h2>
+        <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <input type="text" placeholder="Project Name" class="px-3 py-2 border rounded" required>
+          <input type="text" placeholder="Architect Name" class="px-3 py-2 border rounded" required>
+          <input type="file" accept=".pdf,.png,.jpg,.jpeg,.dwg" class="px-3 py-2 border rounded" required>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded col-span-1 md:col-span-3">Upload</button>
+        </form>
+      </div>
 
-    <!-- COMPLIANCE -->
-    <section class="bg-white shadow rounded p-6">
-      <h2 class="text-lg font-semibold mb-4">Compliance Checklist</h2>
-      <ul class="space-y-2">
-        <li><input type="checkbox" class="mr-2"> Fire Safety Clearance</li>
-        <li><input type="checkbox" class="mr-2"> Environmental Impact Report</li>
-        <li><input type="checkbox" class="mr-2"> Construction Material Audit</li>
-      </ul>
-    </section>
-
-    <!-- MEETINGS -->
-    <section class="bg-white shadow rounded p-6">
-      <h2 class="text-lg font-semibold mb-4">Upcoming Meetings</h2>
-      <ul class="space-y-2">
-        <li>
-          <strong>Site Review</strong> – 18th Sept, 11:00 AM – <em>Project 101</em>
-        </li>
-        <li>
-          <strong>Weekly Briefing</strong> – 20th Sept, 3:00 PM – <em>All Projects</em>
-        </li>
-      </ul>
-    </section>
-
-    <!-- DOCUMENTS -->
-    <section class="bg-white shadow rounded p-6">
-      <h2 class="text-lg font-semibold mb-4">Document Upload</h2>
-      <form class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium mb-1">Upload Document</label>
-          <input type="file" class="border border-gray-300 rounded px-3 py-2 w-full">
-        </div>
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          Upload
-        </button>
-      </form>
-    </section>
- </main>
+      <!-- Modal -->
+  <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+    <div class="relative bg-white rounded-lg shadow-lg w-11/12 max-w-5xl">
+      <!-- Close Button -->
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 text-xl">&times;</button>
+      <!-- Image -->
+      <img id="planImage" src="images/floor-plan.jpg" alt="Plan Preview" class="w-full h-[80vh] object-contain rounded-lg">
+    </div>
   </div>
 
+    </main>
+    </div>
 </body>
 </html>
