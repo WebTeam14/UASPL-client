@@ -67,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         storedUser.password === password &&
         storedUser.role === role
       ) {
+
+          localStorage.setItem("loggedInUser", JSON.stringify(storedUser));
+
         showAlert("Login successful! Redirecting...", "green");
 
         setTimeout(() => {

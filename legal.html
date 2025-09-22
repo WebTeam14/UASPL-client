@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture</title>
+    <title>Legal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="./js/script.js"></script>
-        <script defer src="./js/architecture.js"></script>
+        <script defer src="./js/legal.js"></script>
         <script defer src="./js/session.js"></script>
     <link rel="icon" href="data:,">
 </head>
@@ -49,15 +49,6 @@
                 <a href="#" class="top-link">Meetings</a>
             </button>
 
-            <!-- <span class="ml-6">Welcome, <strong>Employee</strong></span>
-            <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
-                <button id="profileDropdownBtn"
-                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
-                    aria-haspopup="true" aria-expanded="false">
-                    E
-                </button>
-            </div> -->
-
             <span class="ml-6">Welcome, <strong id="userRole"></strong> (<span id="userName"></span>)</span>
             <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
                 <button id="profileDropdownBtn"
@@ -71,96 +62,74 @@
             <div id="profileDropdownMenu"
                 class="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg hidden z-50" role="menu"
                 aria-orientation="vertical" aria-labelledby="profileDropdownBtn">
-                <!-- <a href="adminProfile.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">View
-                    Details</a> -->
                 <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-100" role="menuitem">Logout</a>
             </div>
             </div>
         </nav>
     </header>
 
-    <div class="p-6 max-w-7xl mx-auto space-y-10 mt-4">
+        <div class="p-6 max-w-7xl mx-auto space-y-10 mt-4">
+
+    <!-- Legal Content -->
     <main class="col-span-3 space-y-6">
 
       <!-- Quick Stats -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-sm text-gray-500">Approved Designs</h3>
-          <p class="text-2xl font-semibold text-green-600">12</p>
+          <h3 class="text-sm text-gray-500">Total Legal Docs</h3>
+          <p id="totalDocs" class="text-2xl font-semibold text-blue-600">0</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-sm text-gray-500">Pending Approvals</h3>
-          <p class="text-2xl font-semibold text-orange-500">3</p>
+          <h3 class="text-sm text-gray-500">Active Cases</h3>
+          <p id="activeCases" class="text-2xl font-semibold text-green-600">0</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-sm text-gray-500">Ongoing Constructions</h3>
-          <p class="text-2xl font-semibold text-blue-600">5</p>
+          <h3 class="text-sm text-gray-500">Expired Docs</h3>
+          <p id="expiredDocs" class="text-2xl font-semibold text-red-600">0</p>
         </div>
       </div>
 
-      <!-- Architecture Projects Table -->
+      <!-- Legal Documents Table -->
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="text-lg font-semibold mb-4">Architecture Projects</h2>
+        <h2 class="text-lg font-semibold mb-4">Legal Records</h2>
         <table class="w-full text-sm text-left border border-gray-200 rounded">
           <thead class="bg-gray-100 text-gray-700">
             <tr>
-              <th class="py-2 px-4 border">Project</th>
-              <th class="py-2 px-4 border">Architect</th>
+              <th class="py-2 px-4 border">Document</th>
+              <th class="py-2 px-4 border">Type</th>
               <th class="py-2 px-4 border">Status</th>
-              <th class="py-2 px-4 border">Progress</th>
+              <th class="py-2 px-4 border">Expiry</th>
               <th class="py-2 px-4 border">Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="py-2 px-4 border">Tower A Renovation</td>
-              <td class="py-2 px-4 border">Ar. Mehta & Associates</td>
-              <td class="py-2 px-4 border text-green-600">Approved</td>
-              <td class="py-2 px-4 border">80%</td>
-              <td class="py-2 px-4 border">
-                <button onclick="openModal('images/plan1.jpg')" class="text-blue-600 hover:underline">View Plan</button>
-            </td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border">Parking Extension</td>
-              <td class="py-2 px-4 border">Ar. Shah Designs</td>
-              <td class="py-2 px-4 border text-orange-600">Pending</td>
-              <td class="py-2 px-4 border">--</td>
-              <td class="py-2 px-4 border"><button class="bg-orange-500 text-white px-2 py-1 rounded">Submit Docs</button></td>
-            </tr>
-            <tr>
-              <td class="py-2 px-4 border">Clubhouse Interior</td>
-              <td class="py-2 px-4 border">Creative Studio</td>
-              <td class="py-2 px-4 border text-blue-600">In Progress</td>
-              <td class="py-2 px-4 border">45%</td>
-              <td class="py-2 px-4 border"><a href="#" class="text-blue-600 hover:underline">Preview</a></td>
-            </tr>
-          </tbody>
+          <tbody id="legalTable"></tbody>
         </table>
       </div>
 
-      <!-- Upload New Design -->
+      <!-- Upload New Document -->
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="text-lg font-semibold mb-4">Upload New Design</h2>
-        <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <input type="text" placeholder="Project Name" class="px-3 py-2 border rounded" required>
-          <input type="text" placeholder="Architect Name" class="px-3 py-2 border rounded" required>
-          <input type="file" accept=".pdf,.png,.jpg,.jpeg,.dwg" class="px-3 py-2 border rounded" required>
-          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded col-span-1 md:col-span-3">Upload</button>
+        <h2 class="text-lg font-semibold mb-4">Upload New Legal Document</h2>
+        <form id="legalForm" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <input type="text" id="docName" placeholder="Document Name" class="px-3 py-2 border rounded" required>
+          <input type="text" id="docType" placeholder="Type (Agreement, Contract, etc.)" class="px-3 py-2 border rounded" required>
+          <input type="date" id="docExpiry" class="px-3 py-2 border rounded">
+          <input type="file" id="docFile" accept=".pdf,.png,.jpg,.jpeg" class="px-3 py-2 border rounded">
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded col-span-1 md:col-span-4">Upload</button>
         </form>
       </div>
 
-      <!-- Modal -->
-  <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="legalModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
     <div class="relative bg-white rounded-lg shadow-lg w-11/12 max-w-5xl">
-      <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 text-xl">&times;</button>
-      <!-- Image -->
-      <img id="planImage" src="images/floor-plan.jpg" alt="Plan Preview" class="w-full h-[80vh] object-contain rounded-lg">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-red-600 text-2xl">&times;</button>
+      <iframe id="legalPreview" src="" class="w-full h-[80vh] rounded-lg"></iframe>
     </div>
   </div>
 
-    </main>
-    </div>
+  <!-- Session Handling -->
+  <script src="js/session.js"></script>
 </body>
 </html>

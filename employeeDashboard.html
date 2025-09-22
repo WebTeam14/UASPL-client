@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="./js/script.js"></script>
     <script defer src="./js/employeeDashboard.js"></script>
+    <script defer src="./js/session.js"></script>
     <link rel="icon" href="data:,">
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -19,7 +20,7 @@
         </div>
         <nav class="space-x-5 text-sm font-medium text-gray-600">
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                <a href="adminDashboard.html" class="top-link">Dashboard</a>
+                <a id="dashboardLink" href="#" class="top-link">Dashboard</a>
             </button>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                 <a href="compliance.html" class="top-link">Compliance</a>
@@ -49,13 +50,21 @@
                 <a href="#" class="top-link">Meetings</a>
             </button>
 
-            <span class="ml-6">Welcome, <strong>Employee</strong></span>
+            <!-- <span class="ml-6">Welcome, <strong>Employee</strong></span>
             <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
-                <!-- <a href="adminProfile.html">A</a> -->
                 <button id="profileDropdownBtn"
                     class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
                     aria-haspopup="true" aria-expanded="false">
                     E
+                </button>
+            </div> -->
+
+            <span class="ml-6">Welcome, <strong id="userRole"></strong> (<span id="userName"></span>)</span>
+            <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
+                <button id="profileDropdownBtn"
+                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span id="userInitials">E</span>
                 </button>
             </div>
 
