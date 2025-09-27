@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compliance</title>
+    <title>Meetings</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="./js/script.js"></script>
-    <script defer src="./js/compliance.js"></script>
+    <script defer src="./js/meetings.js"></script>
     <script defer src="./js/session.js"></script>
     <link rel="icon" href="data:,">
 </head>
@@ -52,15 +51,6 @@
                 <a href="meetings.html" class="top-link">Meetings</a>
             </button>
 
-            <!-- <span class="ml-6">Welcome, <strong>Employee</strong></span>
-            <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
-                <button id="profileDropdownBtn"
-                    class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer select-none"
-                    aria-haspopup="true" aria-expanded="false">
-                    E
-                </button>
-            </div> -->
-
             <span class="ml-6">Welcome, <strong id="userRole"></strong> (<span id="userName"></span>)</span>
             <div class="inline-block w-8 h-8 bg-blue-400 rounded-full text-center text-white font-bold leading-8">
                 <button id="profileDropdownBtn"
@@ -83,94 +73,75 @@
     </header>
 
     <div class="p-6 max-w-7xl mx-auto space-y-10 mt-4">
-
-        <!-- Compliance Content -->
         <main class="col-span-3 space-y-6">
-
             <!-- Quick Stats -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-sm text-gray-500">Total Compliances</h3>
-                    <p class="text-2xl font-semibold text-blue-600">6</p>
+                    <h3 class="text-sm text-gray-500">Total Meetings</h3>
+                    <p id="totalMeetings" class="text-2xl font-semibold text-blue-600">0</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-sm text-gray-500">Pending / Expired</h3>
-                    <p class="text-2xl font-semibold text-red-500">2</p>
+                    <h3 class="text-sm text-gray-500">Upcoming</h3>
+                    <p id="upcomingMeetings" class="text-2xl font-semibold text-green-600">0</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="text-sm text-gray-500">Up-to-date</h3>
-                    <p class="text-2xl font-semibold text-green-600">4</p>
+                    <h3 class="text-sm text-gray-500">Completed</h3>
+                    <p id="completedMeetings" class="text-2xl font-semibold text-gray-700">0</p>
                 </div>
             </div>
 
-            <!-- Compliance Table -->
+            <!-- Meeting Records -->
             <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-lg font-semibold mb-4">Compliance Records</h2>
+                <h2 class="text-lg font-semibold mb-4">Meeting Records</h2>
                 <table class="w-full text-sm text-left border border-gray-200 rounded">
                     <thead class="bg-gray-100 text-gray-700">
                         <tr>
-                            <th class="py-2 px-4 border">Document</th>
+                            <th class="py-2 px-4 border">Date</th>
+                            <th class="py-2 px-4 border">Time</th>
+                            <th class="py-2 px-4 border">Agenda</th>
                             <th class="py-2 px-4 border">Status</th>
-                            <th class="py-2 px-4 border">Expiry Date</th>
                             <th class="py-2 px-4 border">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="py-2 px-4 border">Society Registration Certificate</td>
-                            <td class="py-2 px-4 border text-green-600">Valid</td>
-                            <td class="py-2 px-4 border">15 Dec 2026</td>
-                            <td class="py-2 px-4 border">
-                                <a href="#" class="text-blue-600 hover:underline">View</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border">Fire Safety Certificate</td>
-                            <td class="py-2 px-4 border text-red-600">Expired</td>
-                            <td class="py-2 px-4 border">10 Aug 2024</td>
-                            <td class="py-2 px-4 border">
-                                <button class="bg-orange-500 text-white px-2 py-1 rounded">Renew</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border">Lift License</td>
-                            <td class="py-2 px-4 border text-green-600">Valid</td>
-                            <td class="py-2 px-4 border">01 Mar 2026</td>
-                            <td class="py-2 px-4 border">
-                                <a href="#" class="text-blue-600 hover:underline">View</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border">Property Tax Receipt</td>
-                            <td class="py-2 px-4 border text-red-600">Pending</td>
-                            <td class="py-2 px-4 border">--</td>
-                            <td class="py-2 px-4 border">
-                                <button class="bg-blue-600 text-white px-2 py-1 rounded">Pay Now</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border">Annual Audit Report</td>
-                            <td class="py-2 px-4 border text-green-600">Submitted</td>
-                            <td class="py-2 px-4 border">FY 2024–25</td>
-                            <td class="py-2 px-4 border">
-                                <a href="#" class="text-blue-600 hover:underline">Download</a>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="meetingTable"></tbody>
                 </table>
             </div>
 
-            <!-- Upload Compliance -->
+            <!-- Add Meeting -->
             <div class="bg-white rounded-lg shadow p-6">
-                <h2 class="text-lg font-semibold mb-4">Upload New Compliance</h2>
-                <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <input type="text" placeholder="Document Name" class="px-3 py-2 border rounded" required>
-                    <input type="date" class="px-3 py-2 border rounded" required>
-                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Upload</button>
+                <h2 class="text-lg font-semibold mb-4">Schedule New Meeting</h2>
+                <form id="meetingForm" class="grid grid-cols-1 md:grid-cols-5 gap-3">
+                    <input type="date" id="meetingDate" class="px-3 py-2 border rounded" required>
+                    <input type="time" id="meetingTime" class="px-3 py-2 border rounded" required>
+                    <input type="text" id="meetingAgenda" placeholder="Agenda" class="px-3 py-2 border rounded"
+                        required>
+                    <input type="text" id="meetingAttendees" placeholder="Attendees" class="px-3 py-2 border rounded">
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded col-span-1 md:col-span-5">Add
+                        Meeting</button>
                 </form>
             </div>
 
         </main>
+    </div>
+
+    <!-- Meeting Modal -->
+    <div id="meetingModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="relative bg-white rounded-lg shadow-lg w-11/12 max-w-3xl p-6">
+            <button onclick="closeMeetingModal()"
+                class="absolute top-2 right-2 text-gray-600 hover:text-red-600 text-2xl">&times;</button>
+            <h2 class="text-xl font-semibold mb-4">Meeting Details</h2>
+            <p><strong>Date:</strong> <span id="modalDate"></span></p>
+            <p><strong>Time:</strong> <span id="modalTime"></span></p>
+            <p><strong>Agenda:</strong> <span id="modalAgenda"></span></p>
+            <p><strong>Attendees:</strong> <span id="modalAttendees"></span></p>
+            <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+        </div>
+    </div>
+
+    <!-- Session Handling -->
+    <script src="js/session.js"></script>
+
+    </main>
     </div>
 </body>
 
